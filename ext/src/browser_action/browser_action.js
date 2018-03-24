@@ -2,14 +2,8 @@ var l = document.getElementById("submit");
 
 l.onclick = function click() {
 
-	chrome.tabs.query({
-      active: true,
-      lastFocusedWindow: true
-  }, function(tabs) {
-      // and use that tab to fill in out title and url
-      var tab = tabs[0];
-			url = tab.url;
-      // window.open(url);
+
+
 			var re = /[^=]*$/; // get everything after the equal sign
 			var videoId = re.exec(url);
 			var link = "localhost:8080/?videoId=" + videoId + "&searchText=" + document.getElementById("mysearch").value;
