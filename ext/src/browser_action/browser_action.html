@@ -1,37 +1,13 @@
 <!DOCTYPE html>
 <head>
+<<<<<<< HEAD
+=======
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	
+	<link rel="stylesheet" href="./inject/browser_action.html">
+>>>>>>> 8010fa887e1a6f4df56dd527b611baedca10c1d2
 </head>
 
-
-<style type="text/css">
-	#mainPopup {
-		padding: 10px;
-		height: 200px;
-		width: 400px;
-		font-family: Helvetica, Ubuntu, Arial, sans-serif;
-	}
-	h1 {
-		font-size: 2em;
-	}
-	button {
-		background-color: white;
-    color: black;
-    border: 2px solid #008CBA;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-	}
-	button:hover {
-    background-color: #008CBA;
-    color: white;
-	}
-	input[type=text] {
-    border: none;
-    border-bottom: 2px solid #008CBA;
-	}
-	input:focus {
-    outline: none;
-	}
-</style>
 
 
 <div id="mainPopup">
@@ -60,3 +36,19 @@
 </div>
 
 
+<script>
+			$scope.goToTime = function(index) {
+					var unconvertedTime = $scope.captions[index].time;
+					var a = unconvertedTime.split(':');
+					var timeInSeconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
+
+					// doesn't work with video within playlist
+					var url = window.location.href;
+					var re = /[^=]*$/; // get everything after the equal sign
+					var videoId = re.exec(url);
+					var link = "https://www.youtube.com/watch?v=" + videoId + "&t=" + timeInSeconds + "s";
+
+					window.open(link);
+			};
+	}]);
+</script>
