@@ -3,6 +3,12 @@ var l = document.getElementById("submit");
 
 l.onclick = function click() {
 
+		var url;
+		chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+			url =  tabs[0].url;
+			alert(url);
+		});
+
 		var videoId = "zkrq7Kpd1so";
 		var link = "localhost:8080/videoId=" + videoId + "&searchText=" + document.getElementById("mysearch").value;
 		//alert(link);
