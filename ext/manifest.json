@@ -28,7 +28,7 @@
     "clipboardWrite",
     "contentSettings",
     "contextMenus",
-//"fileBrowserHandler",
+/* "fileBrowserHandler", */
     "idle",
     "management",
     "notifications",
