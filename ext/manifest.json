@@ -24,16 +24,7 @@
   "permissions": [
 	"declarativeContent",
     "contentSettings",
-<<<<<<< HEAD
     "tabs"
-=======
-    "contextMenus",
-/* "fileBrowserHandler", */
-    "idle",
-    "management",
-    "tabs",
-	"declarativeContent"
->>>>>>> f7b81735912cf9af92e69f70c09a2e2e923df09a
   ],
   "content_scripts": [
     {
