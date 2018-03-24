@@ -5,41 +5,22 @@ window.onload = function() {
 
 var l = document.getElementById("submit");
 
-
+var url;
+chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+			url =  tabs[0].url;
+});
 l.onclick = function click() {
 
-<<<<<<< HEAD
-		var url;
-		chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
-			url =  tabs[0].url;
-			alert(url);
-		});
 
-		var videoId = "zkrq7Kpd1so";
-		var link = "localhost:8080/videoId=" + videoId + "&searchText=" + document.getElementById("mysearch").value;
-		//alert(link);
-		window.open(link);
-=======
-	chrome.tabs.query({
-      active: true,
-      lastFocusedWindow: true
-  }, function(tabs) {
-      // and use that tab to fill in out title and url
-      var tab = tabs[0];
-			url = tab.url;
-      // window.open(url);
+
 			var re = /[^=]*$/; // get everything after the equal sign
 			var videoId = re.exec(url);
 			var link = "localhost:8080/?videoId=" + videoId + "&searchText=" + document.getElementById("mysearch").value;
-			window.open(link)
-  });
+			//alert(link);
+			window.open(link);
 
->>>>>>> d3972172bb8f5712c64a2f9c5c3d574419aa47cc
-	};
-/*var t =
-						chrome.tabs.query({active: true}, function(t) {
-						alert(t);
-					});*/
+};
+
 	var app = angular.module("myApp", []);
 	app.controller("myCtrller", ['$scope', function($scope) {
 	    $scope.captions = [
