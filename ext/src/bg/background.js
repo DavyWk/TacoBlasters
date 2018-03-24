@@ -6,7 +6,7 @@
 
 
 //example of using a message handler from the inject scripts
-
+'use strict';
  chrome.runtime.onInstalled.addListener(function() {
 	  
     chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {

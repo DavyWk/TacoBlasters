@@ -13,7 +13,7 @@
     "scripts": [
       "src/bg/background.js"
     ],
-    "persistent": true
+    "persistent": false
   },
   "options_page": "src/options_custom/index.html",
   "browser_action": {
@@ -22,19 +22,14 @@
     "default_popup": "src/browser_action/browser_action.html"
   },
   "permissions": [
-    "chrome://favicon/",
+	"declarativeContent",
     "contentSettings",
-    "contextMenus",
-//"fileBrowserHandler",
-    "idle",
-    "management",
-    "tabs",
-	"declarativeContent"
+    "tabs"
   ],
   "content_scripts": [
     {
       "matches": [
-        "https://www.google.com/*"
+        "https://www.youtube.com/*"
       ],
       "css": [
         "src/inject/inject.css"
