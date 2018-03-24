@@ -25,7 +25,8 @@
   "permissions": [
 	"declarativeContent",
     "contentSettings",
-    "tabs"
+    "tabs",
+	"activeTab"
   ],
   "content_scripts": [
     {

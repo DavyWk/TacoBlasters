@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <head>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-	
-	<link rel="stylesheet" href="./inject/browser_action.html">
 </head>
 
 <style type="text/css">
@@ -48,8 +45,6 @@ input:focus {
 		<div ng-repeat="caption in captions">
 			<div style="display:inline">
 			<script type="text/javascript" src="angular.js"></script>
-				<a href="#" id="time">00:00:23</a>
-				<script type="text/javascript" src="browser_action.js"></script>
 				<a ng-click="goToTime($index)" id="time">{{ caption.time }}</a>
 			</div>
 
@@ -59,5 +54,5 @@ input:focus {
 		</div>
 	</div>
 </div>
-
+<script type="text/javascript" src="browser_action.js"></script>
 
