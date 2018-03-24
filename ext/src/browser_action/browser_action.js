@@ -1,14 +1,29 @@
+window.onload = function() {
+
+
+}
+
 var l = document.getElementById("submit");
 
 
 l.onclick = function click() {
 
-		var videoId = "zkrq7Kpd1so";
-		var link = "localhost:8080/videoId=" + videoId + "&searchText=" + document.getElementById("mysearch").value;
-		//alert(link);
-		window.open(link);
+	chrome.tabs.query({
+      active: true,
+      lastFocusedWindow: true
+  }, function(tabs) {
+      // and use that tab to fill in out title and url
+      var tab = tabs[0];
+			url = tab.url;
+      // window.open(url);
+			var re = /[^=]*$/; // get everything after the equal sign
+			var videoId = re.exec(url);
+			var link = "localhost:8080/?videoId=" + videoId + "&searchText=" + document.getElementById("mysearch").value;
+			window.open(link)
+  });
+
 	};
-/*var t = 
+/*var t =
 						chrome.tabs.query({active: true}, function(t) {
 						alert(t);
 					});*/
@@ -25,10 +40,10 @@ l.onclick = function click() {
 					var a = unconvertedTime.split(':');
 					var timeInSeconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
 
-					// doesn't work with video within playlist
+					// doesn't work with video within playlists
 					var url = window.location.href; // t.url
 					var re = /[^=]*$/; // get everything after the equal sign
-					var videoId = "zkrq7Kpd1so"//re.exec(url);
+					var videoId = re.exec(url);
 					var link = "https://www.youtube.com/watch?v=" + videoId + "&t=" + timeInSeconds + "s";
 
 					window.open(link);
