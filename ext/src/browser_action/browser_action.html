@@ -1,4 +1,7 @@
-<!doctype html>
+<!DOCTYPE html>
+
+
+
 <style type="text/css">
 	#mainPopup {
 		padding: 10px;
@@ -24,7 +27,11 @@
     border: none;
     border-bottom: 2px solid #008CBA;
 	}
+	input:focus {
+    outline: none;
+	}
 </style>
+
 
 <div id="mainPopup">
 	<h1>Welcome to the TacoBlaster Search Engine</h1>
@@ -34,4 +41,33 @@
 		<input type="text" placeholder="Search">
 		<button id = "submit">Submit</button>
 	</form>
+
+	<div>
+		<div>
+			<div style="display:inline">
+				<a href="javascript:goToTime();" id="time">00:00:23</a>
+			</div>
+
+			<div style="display:inline">
+				random captions #1
+			</div>
+		</div>
+
+	</div>
+
+
+<script>
+	function goToTime() {
+		var unconvertedTime = document.getElementById("time").innerHTML
+		var a = unconvertedTime.split(':'); // split it at the colons
+		// minutes are worth 60 seconds. Hours are worth 60 minutes.
+		var timeInSeconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
+
+		var videoId = "zkrq7Kpd1so"
+		var link = "https://www.youtube.com/watch?v=" + videoId + "&t=" + timeInSeconds + "s";
+
+		window.open(link);
+	}
+</script>
+
 </div>
