@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
 
 
 <style type="text/css">
@@ -39,35 +41,62 @@
 
 	<form>
 		<input type="text" placeholder="Search">
-		<button id = "submit">Submit</button>
+		<button id="submit">Submit</button>
 	</form>
 
-	<div>
-		<div>
+	<div ng-app="myApp" ng-controller="myCtrller">
+		<div ng-repeat="caption in captions">
 			<div style="display:inline">
-				<a href="javascript:goToTime();" id="time">00:00:23</a>
+				<a ng-click="goToTime($index)" id="time">{{ caption.time }}</a>
 			</div>
 
 			<div style="display:inline">
-				random captions #1
+				- {{ caption.text }}
 			</div>
 		</div>
-
 	</div>
-
+</div>
 
 <script>
-	function goToTime() {
-		var unconvertedTime = document.getElementById("time").innerHTML
-		var a = unconvertedTime.split(':'); // split it at the colons
-		// minutes are worth 60 seconds. Hours are worth 60 minutes.
-		var timeInSeconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
+	var app = angular.module("myApp", []);
+	app.controller("myCtrller", ['$scope', function($scope) {
+	    $scope.captions = [
+				{time: "00:00:04", text: "random captions #1"},
+				{time: "00:00:15", text: "random captions #2"},
+				{time: "00:00:29", text: "random captions #3"}
+			]
 
-		var videoId = "zkrq7Kpd1so"
-		var link = "https://www.youtube.com/watch?v=" + videoId + "&t=" + timeInSeconds + "s";
+			$scope.goToTime = function(index) {
+					var unconvertedTime = $scope.captions[index].time;
+					var a = unconvertedTime.split(':');
+					var timeInSeconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
 
-		window.open(link);
-	}
+					var videoId = "Mp9u9fPiVHk"
+					var link = "https://www.youtube.com/watch?v=" + videoId + "&t=" + timeInSeconds + "s";
+
+					window.open(link);
+			};
+	}]);
+
+	// var settings = {
+	//   "async": true,
+	//   "crossDomain": true,
+	//   "url": "http://api.meaningcloud.com/topics-2.0",
+	//   "method": "POST",
+	//   "headers": {
+	//     "content-type": "application/x-www-form-urlencoded"
+	//   },
+	//   "data": {
+	//     "key": "9a0dba48727b9d159eb67a44074d9eb5",
+	//     "lang": "en",
+	//     "txt": "Robert%20Downey%20Jr%20has%20topped%20Forbes%20magazine%27s%20annual%20list%20of%20the%20highest%20paid%20actors%20for%20the%20second%20year%20in%20a%20row.%20The%2049-year-old%20star%20of%20the%20Iron%20Man%20and%20Avengers%20films%20made%20an%20estimated%20%2475m%20over%20the%20past%20year%2C%20beating%20rivals%20Dwayne%20Johnson%2C%20Bradley%20Cooper%2C%20Chris%20Hemsworth%20and%20Leonardo%20DiCaprio.",
+	//     "url": "https://api.meaningcloud.com/topics-2.0",
+	//     "doc": "",
+	//     "tt": "a"
+	//   }
+	// }
+	// $.ajax(settings).done(function (response) {
+	//   console.log(response);
+	// });
+
 </script>
-
-</div>
