@@ -35,7 +35,8 @@ input:focus {
 </style>
 
 <div id="mainPopup">
-	<h1>Welcome to the TacoBlaster Search Engine</h1>
+	<h1>Welcome to the TacoBlast
+	er Search Engine</h1>
 	<p>What would you like to search for in your video?</p>
 
 	<form>
@@ -46,7 +47,6 @@ input:focus {
 	<div ng-app="myApp" ng-controller="myCtrller">
 		<div ng-repeat="caption in captions">
 			<div style="display:inline">
-			<script type="text/javascript" src="angular.js"></script>
 				<a ng-click="goToTime($index)" id="time">{{ caption.time }}</a>
 			</div>
 

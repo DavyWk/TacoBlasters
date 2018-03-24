@@ -1,16 +1,13 @@
-var l = document.getElementById("time");
+var l = document.getElementById("submit");
 
-/*l.onclick = function goToTime() {
-		var unconvertedTime = document.getElementById("time").innerHTML
-		var a = unconvertedTime.split(':'); // split it at the colons
-		// minutes are worth 60 seconds. Hours are worth 60 minutes.
-		var timeInSeconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
 
-		var videoId = "zkrq7Kpd1so"
-		var link = "https://www.youtube.com/watch?v=" + videoId + "&t=" + timeInSeconds + "s";
+l.onclick = function click() {
 
+		var videoId = "zkrq7Kpd1so";
+		var link = "localhost:8080/videoId=" + videoId + "&searchText=" + document.getElementById("mysearch").value;
+		//alert(link);
 		window.open(link);
-	};*/
+	};
 /*var t = 
 						chrome.tabs.query({active: true}, function(t) {
 						alert(t);

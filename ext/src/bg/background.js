@@ -9,7 +9,3 @@
 'use strict';
 
 let b = document.getElementById('submit');
-
-b.onclick = function() {
-	console.log(document.getElementById('mysearch').value)
-};
