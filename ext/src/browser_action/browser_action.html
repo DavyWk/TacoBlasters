@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-
+<head>
+</head>
 
 
 <style type="text/css">
@@ -45,7 +46,8 @@
 	<div>
 		<div>
 			<div style="display:inline">
-				<a href="javascript:goToTime();" id="time">00:00:23</a>
+				<a href="#" id="time">00:00:23</a>
+				<script type="text/javascript" src="browser_action.js"></script>
 			</div>
 
 			<div style="display:inline">
@@ -54,20 +56,4 @@
 		</div>
 
 	</div>
-
-
-<script>
-	function goToTime() {
-		var unconvertedTime = document.getElementById("time").innerHTML
-		var a = unconvertedTime.split(':'); // split it at the colons
-		// minutes are worth 60 seconds. Hours are worth 60 minutes.
-		var timeInSeconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
-
-		var videoId = "zkrq7Kpd1so"
-		var link = "https://www.youtube.com/watch?v=" + videoId + "&t=" + timeInSeconds + "s";
-
-		window.open(link);
-	}
-</script>
-
 </div>
