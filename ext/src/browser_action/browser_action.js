@@ -38,7 +38,5 @@ var l = document.getElementById("time");
 			};
 	}]);
 
-	
-	
 	//yt = document.getElementById("movie_player")
 	// yt.seekTo(time) **time in seconds
