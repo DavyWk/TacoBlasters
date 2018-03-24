@@ -9,12 +9,29 @@
 	h1 {
 		font-size: 2em;
 	}
+	.button {
+		background-color: white;
+    color: black;
+    border: 2px solid #008CBA;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+	}
+	.button:hover {
+    background-color: #008CBA;
+    color: white;
+	}
+	input[type=text] {
+    border: none;
+    border-bottom: 2px solid #008CBA;
+	}
 </style>
 
 <div id="mainPopup">
-<h1>Welcome to the TacoBlaster Search Engine</h1>
-<p>What would you like to search for in your video?</p>
+	<h1>Welcome to the TacoBlaster Search Engine</h1>
+	<p>What would you like to search for in your video?</p>
 
-<form><input type="text" placeholder="Search"><button>Submit</button></form>
-
+	<form>
+		<input type="text" placeholder="Search">
+		<button>Submit</button>
+	</form>
 </div>
