@@ -11,7 +11,7 @@ l.onclick = function goToTime() {
 
 		window.open(link);
 	};
-	
+
 	var app = angular.module("myApp", []);
 	app.controller("myCtrller", ['$scope', function($scope) {
 	    $scope.captions = [
@@ -21,36 +21,22 @@ l.onclick = function goToTime() {
 			]
 
 			$scope.goToTime = function(index) {
-					var unconvertedTime = $scope.captions[index].time;
-					var a = unconvertedTime.split(':');
-					var timeInSeconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
+				var unconvertedTime = $scope.captions[index].time;
+				var a = unconvertedTime.split(':');
+				var timeInSeconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
 
-					// doesn't work with video within playlist
-					var url = window.location.href;
-					var re = /[^=]*$/; // get everything after the equal sign
-					var videoId = re.exec(url);
-					// console.log(videoId);
-					// var videoId = "Mp9u9fPiVHk";
-					var link = "https://www.youtube.com/watch?v=" + videoId + "&t=" + timeInSeconds + "s";
+				// doesn't work with video within playlist
+				var url = window.location.href;
+				var re = /[^=]*$/; // get everything after the equal sign
+				var videoId = re.exec(url);
+				var link = "https://www.youtube.com/watch?v=" + videoId + "&t=" + timeInSeconds + "s";
 
-					window.open(link);
-			};
+				window.open(link);
+		};
 	}]);
-	
-				$scope.goToTime = function(index) {
-					var unconvertedTime = $scope.captions[index].time;
-					var a = unconvertedTime.split(':');
-					var timeInSeconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
 
-					// doesn't work with video within playlist
-					var url = window.location.href;
-					var re = /[^=]*$/; // get everything after the equal sign
-					var videoId = re.exec(url);
-					var link = "https://www.youtube.com/watch?v=" + videoId + "&t=" + timeInSeconds + "s";
 
-					window.open(link);
-			};
 	}]);
-	
+
 	//yt = document.getElementById("movie_player")
 	// yt.seekTo(time) **time in seconds
