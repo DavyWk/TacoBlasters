@@ -7,23 +7,10 @@
 
 //example of using a message handler from the inject scripts
 'use strict';
- chrome.runtime.onInstalled.addListener(function() {
-	  
-    chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
-      chrome.declarativeContent.onPageChanged.addRules([{
-        conditions: [new chrome.declarativeContent.PageStateMatcher({
-          pageUrl: {hostEquals: 'youtube.com'},
-        })
-        ],
-            actions: [new chrome.declarativeContent.ShowPageAction()]
-      }]);
-    });
-});
 
-chrome.extension.onMessage.addListener(
-  function(request, sender, sendResponse) {
-  	chrome.pageAction.show(sender.tab.id);
-    sendResponse();
-  });
-  
+let b = document.getElementById('submit');
+b.onclick = function() {
+
+	console.log(document.getElementById('mysearch').value)
+};
 
