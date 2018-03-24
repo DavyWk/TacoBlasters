@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 </head>
 
 
@@ -40,20 +41,49 @@
 
 	<form>
 		<input id="mysearch" type="text" placeholder="Search">
-		<button id = "submit">Submit</button>
+		<button id="submit">Submit</button>
 	</form>
 
-	<div>
-		<div>
+	<div ng-app="myApp" ng-controller="myCtrller">
+		<div ng-repeat="caption in captions">
 			<div style="display:inline">
+<<<<<<< HEAD
 				<a href="#" id="time">00:00:23</a>
 				<script type="text/javascript" src="browser_action.js"></script>
+=======
+				<a ng-click="goToTime($index)" id="time">{{ caption.time }}</a>
 			</div>
 
 			<div style="display:inline">
-				random captions #1
+				- {{ caption.text }}
 			</div>
 		</div>
-
 	</div>
 </div>
+
+<script>
+	var app = angular.module("myApp", []);
+	app.controller("myCtrller", ['$scope', function($scope) {
+	    $scope.captions = [
+				{time: "00:00:04", text: "random captions #1"},
+				{time: "00:00:15", text: "random captions #2"},
+				{time: "00:00:29", text: "random captions #3"}
+			]
+
+			$scope.goToTime = function(index) {
+					var unconvertedTime = $scope.captions[index].time;
+					var a = unconvertedTime.split(':');
+					var timeInSeconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
+
+					// doesn't work with video within playlist
+					var url = window.location.href;
+					var re = /[^=]*$/; // get everything after the equal sign
+					var videoId = re.exec(url);
+					// console.log(videoId);
+					// var videoId = "Mp9u9fPiVHk";
+					var link = "https://www.youtube.com/watch?v=" + videoId + "&t=" + timeInSeconds + "s";
+
+					window.open(link);
+			};
+	}]);
+</script>
