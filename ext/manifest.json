@@ -21,12 +21,11 @@
     "default_title": "browser action demo",
     "default_popup": "src/browser_action/browser_action.html"
   },
-  
+
   "permissions": [
 	"declarativeContent",
     "contentSettings",
-    "tabs",
-	"activeTab"
+    "tabs"
   ],
   "content_scripts": [
     {
